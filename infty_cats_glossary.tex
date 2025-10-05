@@ -1,0 +1,315 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=0.4cm,right=0.4cm,marginparwidth=1.75cm]{geometry}
+\usepackage{multirow}
+
+% Useful packages
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+%inserting a figure:
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=0.5\textwidth]{pfigure_1}
+%\caption{The compound pendulum}
+%\end{figure}
+
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{stackengine}
+
+\usepackage{longtable}
+
+\newcommand{\surj}{\rightarrow\mathrel{\mkern-14mu}\rightarrow}
+
+\newcommand{\xsurj}[2][]{%
+  \xrightarrow[#1]{#2}\mathrel{\mkern-14mu}\rightarrow
+}
+
+\newcommand\xmono[2][]{\ensurestackMath{\mathrel{%
+  \stackengine{1pt}{%
+    \stackengine{0pt}{\rightarrowtail}{\scriptstyle#2}{O}{c}{F}{F}{S}%
+  }{\scriptstyle#1}{U}{c}{F}{F}{S}%
+}}}
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+\newcommand{\centre}{\center}
+
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\can}{can}
+\DeclareMathOperator{\charr}{char}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Div}{Div}
+\let\div\relax
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\lk}{lk}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Open}{Open}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Sing}{Sing}
+\DeclareMathOperator{\str}{str}
+\DeclareMathOperator{\Sk}{Sk}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\SPec}{Spec}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\cvec}{Vec}
+
+\def\done{\begin{flushright}\vspace{-4.35ex}\(\qed\)\end{flushright}}
+
+\def\mlip{\ensuremath\abs f_\text{Lip}}
+\def\summing{\ensuremath\sum^{\infty}_{n=1}}
+
+\def\bb{\ensuremath\mathbb}
+\def\la{\ensuremath\langle}
+\def\ra{\ensuremath\rangle}
+\def\notto{\ensuremath\nrightarrow}
+\def\subq{\ensuremath\subseteq}
+\def\id{\ensuremath\text{id}}
+\def\inj{\ensuremath\hookrightarrow}
+\def\xinj{\ensuremath\xhookrightarrow}
+\def\comp{\ensuremath\mathbb{C}}
+\def\real{\ensuremath\mathbb{R}}
+\def\rat{\ensuremath\mathbb{Q}}
+\def\inte{\ensuremath\mathbb{Z}}
+\def\nat{\ensuremath\mathbb{N}}
+\def\topo{\ensuremath\mathcal{T}}
+\def\del{\ensuremath\partial}
+
+\def\vv{\ensuremath\vec{v}}
+\def\ee{\ensuremath\vec{e}}
+
+\def\met{\ensuremath(X, d)}
+\def\metx{\ensuremath(X, d_X)}
+\def\mety{\ensuremath(Y, d_Y)}
+\def\topox{\ensuremath(X, \mathcal{T}_X)}
+\def\topoy{\ensuremath(Y, \mathcal{T}_Y)}
+
+\def\nvert{\ensuremath\hspace{-0.5ex}\not\vert\hspace{0.5ex}}
+
+% \limits\sum or \sum\limits (one of them) will put the text under the sum
+% [upquote=true] on \begin{lstlisting} will stop backticks being interpreted as quotes
+
+\usepackage[backend=bibtex, style=alphabetic]{biblatex}
+\addbibresource{References.bib}
+
+\begin{document}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} 
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} 
+\DeclarePairedDelimiter{\ang}{\langle}{\rangle} 
+
+\begin{centre}
+\begin{longtable}{ |p{3cm}||p{5.2cm}|p{5.2cm}|p{5cm}|  }
+ \hline
+ Concept& 1-Categorical construction & \(\infty\)-Categorical construction &Intuition\\
+ \hline\hline
+  \(F\)-Cartesian edge & & \(F : X \to S \) an inner fibration of simplicial sets, \(f : x\to y \) an edge in \(X\) is \(F\)-cartesian if the induced map \(X_{/f}\to X_{/y}\times_{S_{/F(y)}}S_{/F(f)}\) is a trivial Kan fibration. (\autocite{htt}, Def 2.4.1.1)& ??\\
+\hline
+ Category & Collection of objects \(\mathcal{C}\), set \(\Hom(X, Y)\) for every \(X, Y\in \mathcal{C}\), associative composition and identity morphisms & Simplicial set \(\mathcal{C} : \Delta^\text{op} \to \textbf{Set}\) satisfying the inner horn filling condition. (\autocite{htt}, Def 1.1.2.4)& Category with objects \(\mathcal{C}_0\), morphisms \(\mathcal{C}_1\), morphisms between morphisms \(\mathcal{C}_2\), etc. Inner horn filling defines a non-unique composition. \\
+ \hline
+ Colimit & A colimit for \(F : J \to \mathcal{C}\) is an initial cone on \(F\). & A colimit for \(F : X\to \mathcal{C} \) (\(X\) a simplicial set, \(\mathcal{C}\) an \(\infty\)-category) is an initial object of \(\mathcal{C}_{F/}\). (\autocite{htt}, Def 1.2.13.4) & ??\\
+\hline
+Essentially surjective functor & \(F : \mathcal{C} \to \mathcal{D}\) is essentially surjective if for every \(D \in \mathcal{D}\), there exists some \(C \in \mathcal{C}\) with \(FC \cong D\). & \(F : \mathcal{C} \to \mathcal{D}\) is essentially surjective if h\(F :\) h\(C \to\) h\(\mathcal{D}\) is essentially surjective. (\autocite{htt}, Def 1.2.10.1) & Essentially surjective up to homotopy.\\
+\hline
+Faithful functor & \(F : \mathcal{C} \to \mathcal{D}\) is faithful if \(\Hom(X,Y)\to \Hom(FX, FY)\) is injective for all \(X,Y \in \mathcal{C}\). & \(F : \mathcal{C} \to \mathcal{D}\) is faithful if h\(F :\) h\(\mathcal{C} \to\) h\(\mathcal{D}\) is faithful. (\autocite{htt}, Def 1.2.10.1) & Faithful up to homotopy.\\
+\hline
+ Final object & Object \(C\in \mathcal{C} \) such that for any other object \(C' \in \mathcal{C}\), there exists a unique morphism \(C' \to C\). & Object \(C \in \mathcal{C}\) such that \(C\) is final in h\(\mathcal{C}\), regarded as an enriched category over \(\mathcal{H}\).  (\autocite{htt}, Def 1.2.12.1) & Object \(C\in \mathcal{C}\) such that for any other object \(C' \in \mathcal{C}\), there exists a unique (up to homotopy) morphism \(C' \to C\).\\
+\hline
+Full functor & \(F : \mathcal{C} \to \mathcal{D}\) is full if \(\Hom(X,Y)\to \Hom(FX, FY)\) is surjective for all \(X,Y \in \mathcal{C}\). & \(F : \mathcal{C} \to \mathcal{D}\) is full if h\(F :\) h\(\mathcal{C} \to\) h\(\mathcal{D}\) is full. (\autocite{htt}, Def 1.2.10.1) & Full up to homotopy.\\
+\hline
+Functor & Functor. & Natural transformation of simplicial sets. (\autocite{htt}, 1.2.7)&\\
+\hline
+Groupoid & Category whose morphisms are all invertible. & Kan complex. & Not only can you find (non-unique) `composites', but you can also fill in diagrams like \(\begin{tikzcd}
+C \arrow[r, "\id"] \arrow[d, swap, "f"]  & C  \\
+D \arrow[ur, swap, dashrightarrow, ""]  &
+\end{tikzcd}\)\;\; \(\begin{tikzcd}
+C \arrow[r, "\id"] \arrow[d, swap, dashrightarrow]  & D  \\
+C \arrow[ur, swap, "f"]  &
+\end{tikzcd}\)
+ \\
+\hline
+Initial object & Object \(C\in \mathcal{C} \) such that for any other object \(C' \in \mathcal{C}\), there exists a unique morphism \(C \to C'\). & Object \(C \in \mathcal{C}\) such that \(C\) is initial in h\(\mathcal{C}\), regarded as an enriched category over \(\mathcal{H}\).  (\autocite{htt}, Def 1.2.12.1) & Object \(C\in \mathcal{C}\) such that for any other object \(C' \in \mathcal{C}\), there exists a unique (up to homotopy) morphism \(C \to C'\).\\
+\hline
+ Join & \(\mathcal{C}\star \mathcal{D}\) has objects \(\ob \mathcal{C} \sqcup \ob \mathcal{D}\), and \(\Hom_{\mathcal{C}\star \mathcal{D}}(X,Y)\) is given by: \(\begin{cases}
+\Hom_\mathcal{C}(X,Y) & X, Y \in \mathcal{C},\\
+\Hom_\mathcal{D}(X,Y) & X,Y \in \mathcal{D},\\
+\emptyset & X \in \mathcal{D}, Y \in \mathcal{C},\\
+* & X \in \mathcal{C}, Y\in \mathcal{D}.
+\end{cases}\) (\autocite{htt}, 1.2.8) & \(\mathcal{C}\star \mathcal{D} \) has \(n\)-simplicies \((\mathcal{C} \star \mathcal{D})=\mathcal{C}_n \cup \mathcal{D}_n \cup \bigcup_{i+j=n-1}\mathcal{C}_i\times \mathcal{D}_j\).  (\autocite{htt}, Def 1.2.8.1) & ??\\
+\hline
+Left cone & \(\mathcal{C}^\lhd := [0]\star \mathcal{C}\). & \(\mathcal{C}^\lhd := \Delta^0 \star \mathcal{C}\).  (\autocite{htt}, Not 1.2.8.4) & ??\\
+\hline
+Limit & A limit for \(F : J \to \mathcal{C}\) is a terminal cone on \(F\). & A limit for \(F : X\to \mathcal{C} \) (\(X\) a simplicial set, \(\mathcal{C}\) an \(\infty\)-category) is a final object of \(\mathcal{C}_{/F}\). (\autocite{htt}, Def 1.2.13.4) & ??\\
+\hline
+ Opposite category& \(\mathcal{C}^\text{op}\) has the same objects as \(\mathcal{C}\), and \(\Hom_{\mathcal{C}^\text{op}}(X, Y)=\Hom_\mathcal{C}(Y,X)\).  & \(\mathcal{C}^\text{op}_n=\mathcal{C}([n]^\text{op}) \), where \(\{0<1<...<n\}^\text{op}=\{0>1>...>n\}\). (\autocite{htt}, 1.2.1) & A map \(x \to y\) is an edge \(\Delta^1 \to \mathcal{C}\) where \(0\mapsto x\) and \(1 \mapsto y\). In \(\mathcal{C}^\text{op}\) 0 and 1 swap roles, so we instead get a map \(y \to x\).\\
+ \hline
+  Overcategory & For \(C \in \mathcal{C}, \) the category \(\mathcal{C}_{/C}\) satisfies the following universal property: for any category \(\mathcal{D}\), there is a bijection \[\Hom(\mathcal{D}, \mathcal{C}_{/C})\simeq \Hom_C(\mathcal{D}\star[0], \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(\mathcal{D}\star[0] \to \mathcal{C}\) whose restriction to \([0]\) consides with \(C\). (\autocite{htt}, 1.2.9)&  For \(f : S \to \mathcal{C}, \) \(S\) a simplicial set and \(\mathcal{C}\) an \(\infty\)-category, the \(\infty\)-category \(\mathcal{C}_{/f}\) satisfies the following universal property: for any simplicial set \(X\), there is a bijection \[\Hom(X, \mathcal{C}_{/f})\simeq \Hom_f(X\star S, \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(X\star S \to \mathcal{C}\) whose restriction to \(S\) consides with \(f\). (\autocite{htt}, Prop 1.2.9.2) & ??\\
+ \hline
+Right cone & \(\mathcal{C}^\rhd :=\mathcal{C}\star [0]\). & \(\mathcal{C}^\rhd := \mathcal{C} \star \Delta^0\). (\autocite{htt}, Not 1.2.8.4) & ??\\
+ \hline
+ Subcategory & Subcategory \(\mathcal{C}' \subq \mathcal{C}\). & Subsimplicial set \(\mathcal{C}' \subq \mathcal{C}\) arising as a pullback \(\begin{tikzcd}
+\mathcal{C}' \arrow[d, ""'] \arrow[r, ""] \arrow[dr, phantom, "\scalebox{1.3}{$\lrcorner$}" {xshift=-16pt, yshift=6pt}] & \mathcal{C} \arrow[d, ""] \\
+N(\text{h}\mathcal{C})' \arrow[r, ""'] & N(\text{h}\mathcal{C})
+\end{tikzcd}\) where (h\(\mathcal{C})'\subq\) h\(\mathcal{C}\) is a subcategory. (\autocite{htt}, 1.2.11) & ??\\
+ \hline
+ Undercategory & For \(C \in \mathcal{C}, \) the category \(\mathcal{C}_{C/}\) satisfies the following universal property: for any category \(\mathcal{D}\), there is a bijection \[\Hom(\mathcal{D}, \mathcal{C}_{C/})\simeq \Hom_C([0]\star\mathcal{D}, \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \([0]\star\mathcal{D} \to \mathcal{C}\) whose restriction to \([0]\) consides with \(C\). (\autocite{htt}, 1.2.9) &  For \(f : S \to \mathcal{C}, \) \(S\) a simplicial set and \(\mathcal{C}\) an \(\infty\)-category, the \(\infty\)-category \(\mathcal{C}_{f/}\) satisfies the following universal property: for any simplicial set \(X\), there is a bijection \[\Hom(X, \mathcal{C}_{f/})\simeq \Hom_f(S\star X, \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(S\star X \to \mathcal{C}\) whose restriction to \(S\) consides with \(f\). (\autocite{htt}, Prop 1.2.9.2) & ??\\
+\hline
+\end{longtable}
+
+\text{}
+
+\text{}
+
+\begin{tabular}{ |p{5cm}||p{5cm}|p{7cm}|}
+ \hline
+ \multicolumn{3}{|c|}{Equivalences}\\
+ \hline
+ Name& Between & Definition\\
+  \hline\hline
+    Strong equivalence & Topological categories \(\mathcal{C}, \mathcal{D}\) & \(\mathcal{C} \to \mathcal{D}\) is an equivalnce in the sense of enriched category theory. (\autocite{htt}, Def 1.1.3.1)\\
+ \hline
+  (Weak) equivalence & Topological categories \(\mathcal{C}, \mathcal{D}\) & The induced functor h\(\mathcal{C} \to\) h\(\mathcal{D}\) is an equivalence of \(\mathcal{H}\)-enriched categories. (\autocite{htt}, Def 1.1.3.6)\\
+  \hline
+  Categorical equivalence & Simplicial sets \(X, S\) & The induced functor h\(X \to\) h\(S\) is an equivalence of \(\mathcal{H}\)-enriched categories. (\autocite{htt}, Def 1.1.5.14)\\
+\hline 
+ Weak homotopy equivalence & Simplicial sets \(X, S\) & The induced map \(\abs{X} \to \abs{S}\) is a weak homotopy equivalence of topological spaces. (\autocite{htt}, 1.1.4)\\
+ \hline
+ Equivalence & Simplicial categories \(\mathcal{C}, \mathcal{D}\) &The induced functor h\(\mathcal{C} \to\) h\(\mathcal{D}\) is an equivalence of \(\mathcal{H}\)-enriched categories. (\autocite{htt}, Def 1.1.4.4)\\
+\hline
+\end{tabular}
+
+\text{}
+
+\text{}
+
+\begin{longtable}{ |p{5cm}||p{5cm}|p{7cm}| }
+ \hline
+ \multicolumn{3}{|c|}{Fibrations and anodyne morphisms}\\
+ \hline
+ Name& Describes & Definition\\
+  \hline\hline
+   Cartesian fibration & \(f : X \to S\) map of simplicial sets & \(F\) is an inner fibration such that for every edge \(g : x \to y\) of \(S\) and every vertex \(\tilde y\) of \(X\) with \(f(\tilde y)=y\), there exists an \(f\)-cartesian edge \(\tilde g : \tilde x \to \tilde y\) with \(f(\tilde g)=g\). (\autocite{htt}, Def 2.4.2.1)\\
+ \hline
+ Cofibration & \(f : X\to S \) map of simplicial sets & \(f\) is a monomorphism. (\autocite{htt}, A.2.7) \\
+ \hline
+  Inner anodyne & \(f : X \to S \) map of simplicial sets & For every solid arrow diagram as below, with \(p : Y \to T\) an inner fibration, \[\begin{tikzcd}
+X \arrow[r, ""] \arrow[d, swap, "f"]  & Y \arrow[d, "p"]  \\
+S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Def 2.0.0.3) \\
+\hline 
+  Inner Fibration & \(f : X\to S \) map of simplicial sets & For every solid arrow diagram as below, with \(0 < i < n\), \[\begin{tikzcd}
+\Lambda^n_i \arrow[r, ""] \arrow[d, swap, hookrightarrow]  & X \arrow[d, "f"]  \\
+\Delta^n \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
+\end{tikzcd}\] there exists a dotted lift.\\
+ \hline
+ Isofibration & \(F : \mathcal{C} \to \mathcal{D}\) map of \(\infty\)-categories &\(F\) is an inner fibration such that for all \(C \in \mathcal{C}\) and every isomorphism \(u : D \to FC\) in \(\mathcal{D}\) (i.e. \([u]\) is an isomorphism in h\(\mathcal{D}\)) there exists an isomorphism \(\overline u : \overline D \to C\) in \(\mathcal{C}\) such that \(F(\overline u)=u\). \cite[\href{https://kerodon.net/tag/01EN}{Def 01EN}]{kerodon}\\
+ \hline
+(Kan) fibration & \(f : X\to S \) map of simplicial sets & For every solid arrow diagram as below, with \(0 \leq i \leq n\), \[\begin{tikzcd}
+\Lambda^n_i \arrow[r, ""] \arrow[d, swap, hookrightarrow]  & X \arrow[d, "f"]  \\
+\Delta^n \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, A.2.7) \\
+ \hline
+   Left anodyne & \(f : X \to S \) map of simplicial sets & For every solid arrow diagram as below, with \(p : Y \to T\) a left fibration, \[\begin{tikzcd}
+X \arrow[r, ""] \arrow[d, swap, "f"]  & Y \arrow[d, "p"]  \\
+S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Def 2.0.0.3) \\
+\hline 
+ Left fibration & \(f : X \to S \) map of simplicial sets & For every solid arrow diagram as below, with \(0 \leq i < n\), \[\begin{tikzcd}
+\Lambda^n_i \arrow[r, ""] \arrow[d, swap, hookrightarrow]  & X \arrow[d, "f"]  \\
+\Delta^n \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Def 2.0.0.3) \\
+\hline 
+ Right anodyne & \(f : X \to S \) map of simplicial sets & For every solid arrow diagram as below, with \(p : Y \to T\) a right fibration, \[\begin{tikzcd}
+X \arrow[r, ""] \arrow[d, swap, "f"]  & Y \arrow[d, "p"]  \\
+S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Def 2.0.0.3) \\
+\hline 
+  Right fibration & \(f : X \to S \) map of simplicial sets & For every solid arrow diagram as below, with \(0 < i \leq n\), \[\begin{tikzcd}
+\Lambda^n_i \arrow[r, ""] \arrow[d, swap, hookrightarrow]  & X \arrow[d, "f"]  \\
+\Delta^n \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Def 2.0.0.3) \\
+\hline 
+ Serre fibration & \(f : Y \to Z\) map of topological spaces & For every solid arrow diagram as below, \[\begin{tikzcd}
+\{0\}\times \abs{\Delta^n} \arrow[r, ""] \arrow[d, swap]  & Y \arrow[d, "f"]  \\
+\text{[}0,1\text{]}\times \abs{\Delta^n} \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & Z
+\end{tikzcd}\] there exists a dotted lift. \cite[\href{https://kerodon.net/tag/021R}{Def 021R}]{kerodon}\\
+\hline 
+ Trivial Kan fibration & \(f : X \to S\) map of simplicial sets & For every solid arrow diagram as below, with \(0 \leq i \leq n\), \[\begin{tikzcd}
+\del\Delta^n \arrow[r, ""] \arrow[d, swap, hookrightarrow]  & X \arrow[d, "f"]  \\
+\Delta^n \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
+\end{tikzcd}\] there exists a dotted lift. \cite[\href{https://kerodon.net/tag/006W}{Def 006W}]{kerodon}\\
+\hline 
+\end{longtable}
+
+\text{}
+
+\text{}
+
+\begin{tabular}{ |p{3cm}||p{5cm}|p{7cm}|}
+ \hline
+ \multicolumn{3}{|c|}{Nerves}\\
+ \hline
+ Name& Domain object & Definition\\
+  \hline\hline
+  Nerve & Category \(\mathcal{C}\) & \((N\mathcal{C})_n=\text{\{}n\text{-composable strings of morphisms}\) \(\text{ in } \mathcal{C}\text{\}}\). \\
+ \hline
+ Simplicial nerve & Simplicial category \(\mathcal{C}\) & \((N \mathcal{C})_n=\Hom_{\textbf{Cat}_\Delta}(\mathfrak{C}[\Delta^n], \mathcal{C})\), where \(\mathfrak{C}[\Delta^n]\) is the category whose objects are the same as \([n]\), and \(\Hom_{\mathfrak{C}[\Delta^n]}(i,j)=\emptyset\) for \(i<j\) and \(N(P_{ij})\) for \(i\geq j\) (where \(P_{ij}=\{I \subq [n] : (i, j \in I)\wedge (\forall k \in I, i \leq k \leq j)\}\)).\\
+ \hline
+ Topological nerve & Topological category \(\mathcal{C}\) & The simplicial nerve of \(\Sing \mathcal{C}\).\\
+ \hline
+\end{tabular}
+
+\text{}
+
+\text{}
+
+\begin{tabular}{ |p{5cm}||p{8cm}|}
+ \hline
+ \multicolumn{2}{|c|}{Homotopy categories}\\
+ \hline
+ Domain object & Definition\\
+  \hline\hline
+  \(\infty\)-Category \(\mathcal{C}\) & The objects of h\(\mathcal{C}\) are the vertices of \(\mathcal{C}\), and \(\Hom_{\text{h}\mathcal{C}}(X,Y)\) is the set of homotopy classes of edges \(X\to Y\) in \(\mathcal{C}\). (\autocite{htt}, Prop 1.2.3.9)\\
+  \hline
+  Simplicial category \(\mathcal{C}\) & h\(\abs{\mathcal{C}}\). (\autocite{htt}, 1.1.4) \\ 
+ \hline
+   Topological category \(\mathcal{C}\) & h\(\mathcal{C}\) has the same objects as \(\mathcal{C}\), and \(\Hom_{\text{h}\mathcal{C}}(X,Y)=[\Hom_\mathcal{C}(X,Y)]\). (\autocite{htt}, 1.1.3) \\
+  \hline 
+\end{tabular}
+
+\end{centre}
+
+\newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
+\printbibliography
+\restoregeometry%
+\clearpage
+
+\end{document}
