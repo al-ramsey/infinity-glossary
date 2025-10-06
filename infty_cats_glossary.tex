@@ -32,6 +32,7 @@
 \usepackage{stackengine}
 
 \usepackage{longtable}
+\usepackage{xcolor}
 
 \newcommand{\surj}{\rightarrow\mathrel{\mkern-14mu}\rightarrow}
 
@@ -115,6 +116,10 @@
 
 \def\nvert{\ensuremath\hspace{-0.5ex}\not\vert\hspace{0.5ex}} 
 
+% correct spelling
+\def\colour{\color}
+\def\textcolour{\textcolor}
+
 % \limits\sum or \sum\limits (one of them) will put the text under the sum
 % [upquote=true] on \begin{lstlisting} will stop backticks being interpreted as quotes
 
@@ -131,7 +136,7 @@
  \hline
  Concept& 1-Categorical construction & \(\infty\)-Categorical construction &Intuition\\
  \hline\hline
-  \(F\)-Cartesian edge & & \(F : X \to S \) an inner fibration of simplicial sets, \(f : x\to y \) an edge in \(X\) is \(F\)-cartesian if the induced map \(X_{/f}\to X_{/y}\times_{S_{/F(y)}}S_{/F(f)}\) is a trivial Kan fibration. (\autocite{htt}, Def 2.4.1.1)& ??\\
+  \(F\)-Cartesian edge & \(F : X \to S \) a functor, \(f : x\to y \) a morphism in \(X\) is \(F\)-cartesian if the induced map \[X_{/f}\to X_{/y}\times_{S_{/F(y)}}S_{/F(f)}\] is an isomorphism of categories. (\autocite{cartesian}, Prop 2.4) & \(F : X \to S \) an inner fibration of simplicial sets, \(f : x\to y \) an edge in \(X\) is \(F\)-cartesian if the induced map \[X_{/f}\to X_{/y}\times_{S_{/F(y)}}S_{/F(f)}\] is a trivial Kan fibration. (\autocite{htt}, Def 2.4.1.1)& In the model structure on \textbf{sSet}, the fibrations are Kan fibrations and the weak equivalences are weak homotopy equivalences (\autocite{htt}, A.2.7). A trivial fibration in a model category is a map which is both a fibration and a weak equivalence, which in \textbf{sSet} is equivalent to the definition given in this table. Thus, being related by a Kan fibration is a higher categorical notion of `sameness'. \textcolour{red}{Why not a categorical equivalence? \autocite{htt} Rem 1.2.5.5 implies this is stronger, which would match more with the fact that the 1-categorical version is defined in terms of an isomorphism (not equivalence) of categories.} \\
 \hline
  Category & Collection of objects \(\mathcal{C}\), set \(\Hom(X, Y)\) for every \(X, Y\in \mathcal{C}\), associative composition and identity morphisms & Simplicial set \(\mathcal{C} : \Delta^\text{op} \to \textbf{Set}\) satisfying the inner horn filling condition. (\autocite{htt}, Def 1.1.2.4)& Category with objects \(\mathcal{C}_0\), morphisms \(\mathcal{C}_1\), morphisms between morphisms \(\mathcal{C}_2\), etc. Inner horn filling defines a non-unique composition. \\
  \hline
@@ -212,7 +217,7 @@ N(\text{h}\mathcal{C})' \arrow[r, ""'] & N(\text{h}\mathcal{C})
   \hline
   Categorical equivalence & Simplicial sets \(X, S\) & The induced functor h\(X \to\) h\(S\) is an equivalence of \(\mathcal{H}\)-enriched categories. (\autocite{htt}, Def 1.1.5.14)\\
 \hline 
- Weak homotopy equivalence & Simplicial sets \(X, S\) & The induced map \(\abs{X} \to \abs{S}\) is a weak homotopy equivalence of topological spaces. (\autocite{htt}, 1.1.4)\\
+ Weak (homotopy) equivalence & Simplicial sets \(X, S\) & The induced map \(\abs{X} \to \abs{S}\) is a weak homotopy equivalence of topological spaces. (\autocite{htt}, 1.1.4)\\
  \hline
  Equivalence & Simplicial categories \(\mathcal{C}, \mathcal{D}\) &The induced functor h\(\mathcal{C} \to\) h\(\mathcal{D}\) is an equivalence of \(\mathcal{H}\)-enriched categories. (\autocite{htt}, Def 1.1.4.4)\\
 \hline
@@ -230,6 +235,11 @@ N(\text{h}\mathcal{C})' \arrow[r, ""'] & N(\text{h}\mathcal{C})
   \hline\hline
   Acyclic Kan fibration & \(f : X \to S\) map of simplicial sets & see: trivial Kan fibration. (\autocite{acyclic})\\
   \hline
+Anodyne & \(f : X \to S \) map of simplicial sets & For every solid arrow diagram as below, with \(p : Y \to T\) a Kan fibration, \[\begin{tikzcd}
+X \arrow[r, ""] \arrow[d, swap, "f"]  & Y \arrow[d, "p"]  \\
+S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Ex 2.0.0.1) \\
+\hline 
    Cartesian fibration & \(f : X \to S\) map of simplicial sets & \(F\) is an inner fibration such that for every edge \(g : x \to y\) of \(S\) and every vertex \(\tilde y\) of \(X\) with \(f(\tilde y)=y\), there exists an \(f\)-cartesian edge \(\tilde g : \tilde x \to \tilde y\) with \(f(\tilde g)=g\). (\autocite{htt}, Def 2.4.2.1)\\
  \hline
  Cofibration & \(f : X\to S \) map of simplicial sets & \(f\) is a monomorphism. (\autocite{htt}, A.2.7) \\
@@ -276,10 +286,10 @@ S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
 \text{[}0,1\text{]}\times \abs{\Delta^n} \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & Z
 \end{tikzcd}\] there exists a dotted lift. \cite[\href{https://kerodon.net/tag/021R}{Def 021R}]{kerodon}\\
 \hline 
- Trivial Kan fibration & \(f : X \to S\) map of simplicial sets & For every solid arrow diagram as below, with \(0 \leq i \leq n\), \[\begin{tikzcd}
+ Trivial (Kan) fibration & \(f : X \to S\) map of simplicial sets & For every solid arrow diagram as below, \[\begin{tikzcd}
 \del\Delta^n \arrow[r, ""] \arrow[d, swap, hookrightarrow]  & X \arrow[d, "f"]  \\
 \Delta^n \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
-\end{tikzcd}\] there exists a dotted lift. \cite[\href{https://kerodon.net/tag/006W}{Def 006W}]{kerodon}\\
+\end{tikzcd}\] there exists a dotted lift. (\cite[\href{https://kerodon.net/tag/006W}{Def 006W}]{kerodon}/\autocite{htt}, Def 2.0.0.2)\\
 \hline 
 \end{longtable}
 
