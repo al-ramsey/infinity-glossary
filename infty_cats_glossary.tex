@@ -113,7 +113,7 @@
 \def\topox{\ensuremath(X, \mathcal{T}_X)}
 \def\topoy{\ensuremath(Y, \mathcal{T}_Y)}
 
-\def\nvert{\ensuremath\hspace{-0.5ex}\not\vert\hspace{0.5ex}}
+\def\nvert{\ensuremath\hspace{-0.5ex}\not\vert\hspace{0.5ex}} 
 
 % \limits\sum or \sum\limits (one of them) will put the text under the sum
 % [upquote=true] on \begin{lstlisting} will stop backticks being interpreted as quotes
@@ -166,6 +166,18 @@ Initial object & Object \(C\in \mathcal{C} \) such that for any other object \(C
 \end{cases}\) (\autocite{htt}, 1.2.8) & \(\mathcal{C}\star \mathcal{D} \) has \(n\)-simplicies \((\mathcal{C} \star \mathcal{D})=\mathcal{C}_n \cup \mathcal{D}_n \cup \bigcup_{i+j=n-1}\mathcal{C}_i\times \mathcal{D}_j\).  (\autocite{htt}, Def 1.2.8.1) & ??\\
 \hline
 Left cone & \(\mathcal{C}^\lhd := [0]\star \mathcal{C}\). & \(\mathcal{C}^\lhd := \Delta^0 \star \mathcal{C}\).  (\autocite{htt}, Not 1.2.8.4) & ??\\
+\hline
+Left Kan extension (along the inclusion of a full subcategory) & Given a commutative diagram \(\begin{tikzcd}
+\mathcal{C}^0 \arrow[r, "F_0"] \arrow[d, swap, "\iota", hookrightarrow]  & \mathcal{D} \\
+\mathcal{C} \arrow[ur, swap, "F", dashrightarrow]  & 
+\end{tikzcd}\), \(F\) is a left Kan extension of \(F_0\) along \(\iota\) if there is a natural transformation \(\eta : F_0 \to F\iota\) such that for any other pair \((G : \mathcal{C} \to \mathcal{D}, \gamma : F_0 \to G\iota)\), there exists a unique natural transformation \(\alpha : F \to G\) such that \(\gamma=(\alpha * \iota)\circ \eta\).
+ (\autocite{context}, Def 6.1.1) & Given a commutative diagram \(\begin{tikzcd}
+\mathcal{C}^0 \arrow[r, "F_0"] \arrow[d, swap, "\iota", hookrightarrow]  & \mathcal{D} \\
+\mathcal{C} \arrow[ur, swap, "F", dashrightarrow]  & 
+\end{tikzcd}\), \(F\) is a left Kan extension of \(F_0\) along \(\iota\) if for all \(C \in \mathcal{C}\), the induced diagram \(\begin{tikzcd}
+\mathcal{C}^0_{/C} \arrow[r, "F_C"] \arrow[d, swap, "", hookrightarrow]  & \mathcal{D} \\
+(\mathcal{C}^0_{/C})^\rhd \arrow[ur, swap, "", dashrightarrow]  &
+\end{tikzcd}\) exhibits \(FC\) as a colimit of \(F_C\). (\autocite{htt}, Def 4.3.2.2) & ?? \\
 \hline
 Limit & A limit for \(F : J \to \mathcal{C}\) is a terminal cone on \(F\). & A limit for \(F : X\to \mathcal{C} \) (\(X\) a simplicial set, \(\mathcal{C}\) an \(\infty\)-category) is a final object of \(\mathcal{C}_{/F}\). (\autocite{htt}, Def 1.2.13.4) & ??\\
 \hline
