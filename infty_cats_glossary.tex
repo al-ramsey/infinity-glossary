@@ -173,7 +173,7 @@ Initial object & Object \(C\in \mathcal{C} \) such that for any other object \(C
 (\sigma, d_{i-j-1}\tau) & i>j, \; k\neq0.
 \end{cases}\] If \(j=0\), then \(d_0(\sigma, \tau)=\tau\), and if \(k=0\), then \(d_n(\sigma, \tau)=\sigma\).  (\autocite{htt}, Def 1.2.8.1 / \autocite{join}) & Objects are in both cases disjoint unions of objects from the two categories being joined. Morphisms are also exactly the same in both cases (you get all the morphisms from \(\mathcal{C}\) and \(\mathcal{D}\), plus a morphism from \(c\to d\) for every pair \((c, d)\in \mathcal{C}_0\times \mathcal{D}_0\)). Whenever you have an \(n\)-simplex in \(\mathcal{C}\) and an \(m\)-simplex in \(\mathcal{D}\), you get an \((m+n+1)\)-simplex in \(\mathcal{C}\star \mathcal{D}\), so in particular \(\Delta^n\star \Delta^m \cong \Delta^{m+n+1}\).\\
 \hline
-Left cone & \(\mathcal{C}^\lhd := [0]\star \mathcal{C}\). & \(\mathcal{C}^\lhd := \Delta^0 \star \mathcal{C}\).  (\autocite{htt}, Not 1.2.8.4) & \textcolour{red}{??}\\
+Left cone & \(\mathcal{C}^\lhd := [0]\star \mathcal{C}\). & \(\mathcal{C}^\lhd := \Delta^0 \star \mathcal{C}\).  (\autocite{htt}, Not 1.2.8.4) & Adds an extra vertex (cone point) to \(\mathcal{C}\), with a map from that cone point to every other vertex in \(\mathcal{C}\), but adds nothing else (except degenerate simplicies).\\
 \hline
 Left Kan extension (along the inclusion of a full subcategory) & Given a commutative diagram \(\begin{tikzcd}
 \mathcal{C}^0 \arrow[r, "F_0"] \arrow[d, swap, "\iota", hookrightarrow]  & \mathcal{D} \\
@@ -193,7 +193,7 @@ Limit & A limit for \(F : J \to \mathcal{C}\) is a terminal cone on \(F\). & A l
  \hline
   Overcategory & For \(C \in \mathcal{C}, \) the category \(\mathcal{C}_{/C}\) satisfies the following universal property: for any category \(\mathcal{D}\), there is a bijection \[\Hom(\mathcal{D}, \mathcal{C}_{/C})\simeq \Hom_C(\mathcal{D}\star[0], \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(\mathcal{D}\star[0] \to \mathcal{C}\) whose restriction to \([0]\) consides with \(C\). (\autocite{htt}, 1.2.9)&  For \(f : S \to \mathcal{C}, \) \(S\) a simplicial set and \(\mathcal{C}\) an \(\infty\)-category, the \(\infty\)-category \(\mathcal{C}_{/f}\) satisfies the following universal property: for any simplicial set \(X\), there is a bijection \[\Hom(X, \mathcal{C}_{/f})\simeq \Hom_f(X\star S, \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(X\star S \to \mathcal{C}\) whose restriction to \(S\) consides with \(f\). (\autocite{htt}, Prop 1.2.9.2) & \textcolour{red}{??}\\
  \hline
-Right cone & \(\mathcal{C}^\rhd :=\mathcal{C}\star [0]\). & \(\mathcal{C}^\rhd := \mathcal{C} \star \Delta^0\). (\autocite{htt}, Not 1.2.8.4) & \textcolour{red}{??}\\
+Right cone & \(\mathcal{C}^\rhd :=\mathcal{C}\star [0]\). & \(\mathcal{C}^\rhd := \mathcal{C} \star \Delta^0\). (\autocite{htt}, Not 1.2.8.4) & Adds an extra vertex (cone point) to \(\mathcal{C}\), with a map from every other vertex in \(\mathcal{C}\) to that cone point, but adds nothing else (except degenerate simplicies).\\
  \hline
  Subcategory & Subcategory \(\mathcal{C}' \subq \mathcal{C}\). & Subsimplicial set \(\mathcal{C}' \subq \mathcal{C}\) arising as a pullback \(\begin{tikzcd}
 \mathcal{C}' \arrow[d, ""'] \arrow[r, ""] \arrow[dr, phantom, "\scalebox{1.3}{$\lrcorner$}" {xshift=-16pt, yshift=6pt}] & \mathcal{C} \arrow[d, ""] \\
