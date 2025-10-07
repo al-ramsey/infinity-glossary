@@ -168,7 +168,10 @@ Initial object & Object \(C\in \mathcal{C} \) such that for any other object \(C
 \Hom_\mathcal{D}(X,Y) & X,Y \in \mathcal{D},\\
 \emptyset & X \in \mathcal{D}, Y \in \mathcal{C},\\
 * & X \in \mathcal{C}, Y\in \mathcal{D}.
-\end{cases}\) (\autocite{htt}, 1.2.8) & \(\mathcal{C}\star \mathcal{D} \) has \(n\)-simplicies \((\mathcal{C} \star \mathcal{D})=\mathcal{C}_n \cup \mathcal{D}_n \cup \bigcup_{i+j=n-1}\mathcal{C}_i\times \mathcal{D}_j\).  (\autocite{htt}, Def 1.2.8.1) & \textcolour{red}{??}\\
+\end{cases}\) (\autocite{htt}, 1.2.8) & \(\mathcal{C}\star \mathcal{D} \) has \(n\)-simplicies \((\mathcal{C} \star \mathcal{D})=\mathcal{C}_n \cup \mathcal{D}_n \cup \bigcup_{i+j=n-1}\mathcal{C}_i\times \mathcal{D}_j\). The \(i\)th boundary map \(d_i : (\mathcal{C} \star \mathcal{D})_n \to (\mathcal{C} \star \mathcal{D})_{n-1}\) is defined on \(\mathcal{C}_n\) and \(\mathcal{D}_n\) using the \(i\)th boundary map on \(\mathcal{C}\) and \(\mathcal{D}\). Given \(\sigma \in S_j, \tau \in T_k\), \(d_i(\sigma, \tau)\) is given by \[\begin{cases}
+(d_i \sigma, \tau) & i \leq j,\; j\neq 0,\\
+(\sigma, d_{i-j-1}\tau) & i>j, \; k\neq0.
+\end{cases}\] If \(j=0\), then \(d_0(\sigma, \tau)=\tau\), and if \(k=0\), then \(d_n(\sigma, \tau)=\sigma\).  (\autocite{htt}, Def 1.2.8.1 / \autocite{join}) & Objects are in both cases disjoint unions of objects from the two categories being joined. Morphisms are also exactly the same in both cases (you get all the morphisms from \(\mathcal{C}\) and \(\mathcal{D}\), plus a morphism from \(c\to d\) for every pair \((c, d)\in \mathcal{C}_0\times \mathcal{D}_0\)). Whenever you have an \(n\)-simplex in \(\mathcal{C}\) and an \(m\)-simplex in \(\mathcal{D}\), you get an \((m+n+1)\)-simplex in \(\mathcal{C}\star \mathcal{D}\), so in particular \(\Delta^n\star \Delta^m \cong \Delta^{m+n+1}\).\\
 \hline
 Left cone & \(\mathcal{C}^\lhd := [0]\star \mathcal{C}\). & \(\mathcal{C}^\lhd := \Delta^0 \star \mathcal{C}\).  (\autocite{htt}, Not 1.2.8.4) & \textcolour{red}{??}\\
 \hline
