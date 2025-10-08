@@ -247,6 +247,11 @@ S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
 \hline 
    Cartesian fibration & \(f : X \to S\) map of simplicial sets & \(f\) is an inner fibration such that for every edge \(g : x \to y\) of \(S\) and every vertex \(\tilde y\) of \(X\) with \(f(\tilde y)=y\), there exists an \(f\)-cartesian edge \(\tilde g : \tilde x \to \tilde y\) with \(f(\tilde g)=g\). (\autocite{htt}, Def 2.4.2.1)\\
  \hline
+Categorical fibration & \(f : X \to S\) map of simplicial sets & For every solid arrow diagram as below, with \(p : Y \to T\) both a  cofibration and a categorical equivalence, \[\begin{tikzcd}
+Y \arrow[r, ""] \arrow[d, swap, "p"]  & X \arrow[d, "f"]  \\
+T \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
+\end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, p90)\\
+\hline
     Cocartesian fibration & \(f : X \to S\) map of simplicial sets &\(f\) is an inner fibration such that for every edge \(g : x \to y\) of \(S\) and every vertex \(\tilde x\) of \(X\) with \(f(\tilde x)=x\), there exists an \(f\)-cocartesian edge \(\tilde g : \tilde x \to \tilde y\) with \(f(\tilde g)=g\). (\autocite{htt}, Def 2.4.2.1)\\
  \hline
  Cofibration & \(f : X\to S \) map of simplicial sets & \(f\) is a monomorphism. (\autocite{htt}, A.2.7) \\
