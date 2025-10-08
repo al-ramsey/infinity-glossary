@@ -140,6 +140,8 @@
 \hline
  Category & Collection of objects \(\mathcal{C}\), set \(\Hom(X, Y)\) for every \(X, Y\in \mathcal{C}\), associative composition and identity morphisms & Simplicial set \(\mathcal{C} : \Delta^\text{op} \to \textbf{Set}\) satisfying the inner horn filling condition. (\autocite{htt}, Def 1.1.2.4)& Category with objects \(\mathcal{C}_0\), morphisms \(\mathcal{C}_1\), morphisms between morphisms \(\mathcal{C}_2\), etc. Inner horn filling defines a non-unique composition. \\
  \hline
+ \(F\)-Cocartesian edge & \(F : X \to S \) a functor, \(f : x\to y \) a morphism in \(X\) is \(F\)-cocartesian if the induced map \[X_{f/}\to X_{x/}\times_{S_{F(y)/}}S_{F(f)/}\] is an isomorphism of categories. (\autocite{cartesian}, Prop 2.4) & \(F : X \to S \) an inner fibration of simplicial sets, \(f : x\to y \) an edge in \(X\) is \(F\)-cartesian if the induced map \[X_{f/}\to X_{x/}\times_{S_{F(y)/}}S_{F(f)/}\] is a trivial Kan fibration. (\autocite{htt}, Def 2.4.1.1 / Prop 2.4.1.8)& Note that the definitions of an inner fibration and a Kan fibration are invariant under taking opposites. For other intuition, see: \(F\)-cartesian edge. \\
+\hline
  Colimit & A colimit for \(F : J \to \mathcal{C}\) is an initial cone on \(F\). & A colimit for \(F : X\to \mathcal{C} \) (\(X\) a simplicial set, \(\mathcal{C}\) an \(\infty\)-category) is an initial object of \(\mathcal{C}_{F/}\). (\autocite{htt}, Def 1.2.13.4) & \textcolour{red}{??}\\
 \hline
 Essentially surjective functor & \(F : \mathcal{C} \to \mathcal{D}\) is essentially surjective if for every \(D \in \mathcal{D}\), there exists some \(C \in \mathcal{C}\) with \(FC \cong D\). & \(F : \mathcal{C} \to \mathcal{D}\) is essentially surjective if h\(F :\) h\(C \to\) h\(\mathcal{D}\) is essentially surjective. (\autocite{htt}, Def 1.2.10.1) & Essentially surjective up to homotopy.\\
@@ -243,7 +245,9 @@ X \arrow[r, ""] \arrow[d, swap, "f"]  & Y \arrow[d, "p"]  \\
 S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
 \end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Ex 2.0.0.1) \\
 \hline 
-   Cartesian fibration & \(f : X \to S\) map of simplicial sets & \(F\) is an inner fibration such that for every edge \(g : x \to y\) of \(S\) and every vertex \(\tilde y\) of \(X\) with \(f(\tilde y)=y\), there exists an \(f\)-cartesian edge \(\tilde g : \tilde x \to \tilde y\) with \(f(\tilde g)=g\). (\autocite{htt}, Def 2.4.2.1)\\
+   Cartesian fibration & \(f : X \to S\) map of simplicial sets & \(f\) is an inner fibration such that for every edge \(g : x \to y\) of \(S\) and every vertex \(\tilde y\) of \(X\) with \(f(\tilde y)=y\), there exists an \(f\)-cartesian edge \(\tilde g : \tilde x \to \tilde y\) with \(f(\tilde g)=g\). (\autocite{htt}, Def 2.4.2.1)\\
+ \hline
+    Cocartesian fibration & \(f : X \to S\) map of simplicial sets &\(f\) is an inner fibration such that for every edge \(g : x \to y\) of \(S\) and every vertex \(\tilde x\) of \(X\) with \(f(\tilde x)=x\), there exists an \(f\)-cocartesian edge \(\tilde g : \tilde x \to \tilde y\) with \(f(\tilde g)=g\). (\autocite{htt}, Def 2.4.2.1)\\
  \hline
  Cofibration & \(f : X\to S \) map of simplicial sets & \(f\) is a monomorphism. (\autocite{htt}, A.2.7) \\
  \hline
@@ -252,7 +256,7 @@ X \arrow[r, ""] \arrow[d, swap, "f"]  & Y \arrow[d, "p"]  \\
 S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
 \end{tikzcd}\] there exists a dotted lift. (\autocite{htt}, Def 2.0.0.3) \\
 \hline 
-  Inner Fibration & \(f : X\to S \) map of simplicial sets & For every solid arrow diagram as below, with \(0 < i < n\), \[\begin{tikzcd}
+  Inner fibration & \(f : X\to S \) map of simplicial sets & For every solid arrow diagram as below, with \(0 < i < n\), \[\begin{tikzcd}
 \Lambda^n_i \arrow[r, ""] \arrow[d, swap, hookrightarrow]  & X \arrow[d, "f"]  \\
 \Delta^n \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & S
 \end{tikzcd}\] there exists a dotted lift.\\
