@@ -203,9 +203,27 @@ Limit & A limit for \(F : J \to \mathcal{C}\) is a terminal cone on \(F\). & A l
 \hline
 Locally small category & For every \(X, Y \in \mathcal{C}\), \(\Hom(X, Y)\) is a set. & For every \(X, Y \in \mathcal{C}\), the space \(\Hom(X,Y)\) is essentially small. (\autocite{htt}, Prop 5.4.1.7) & \textcolour{red}{[todo]} \\
 \hline
-Monoidal category & \textcolour{red}{[todo]} & \textcolour{red}{Cocartesian fibration of \(\infty\)-operads \(\mathcal{C}^\otimes \to \textbf{Assoc}^\otimes\). (\autocite{ha}, Def 4.1.1.10)} & \textcolour{red}{[todo]}\\
+Monoidal category & \textcolour{red}{[todo]} & \textcolour{red}{Cocartesian fibration of \(\infty\)-operads \(\mathcal{C}^\otimes \to \text{Assoc}^\otimes\). (\autocite{ha}, Def 4.1.1.10)} & \textcolour{red}{[todo]}\\
 \hline
-(Coloured) operad & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} & \textcolour{red}{[todo]}\\
+(Coloured) operad & 
+\(\bullet\) A collection of objects \(\mathcal{O}\).
+
+\(\bullet\) For every finite set \(I\), every \(I\)-indexed collection of objects \(\{X_i\}_{i\in I}\) of \(\mathcal{O}\), and every \(Y \in \mathcal{O}\), a set \(\Hom(\{X_i\}_{i\in I}, Y)\).
+
+\(\bullet\) For every map of finite sets \(I\to J\) having fibres \(\{I_j\}_{j\in J}\), every finite collection of objects \(\{X_i\}_{i\in I}\), every finite collection of objects \(\{Y_j\}_{j\in J}\), and every object \(Z \in \mathcal{O}\), a composition map 
+\(\prod_j\Hom(\{X_i\}_{i\in I_j}, Y_j)\times \Hom(\{Y_j\}_j, Z)\hspace{-0.7ex}\to\hspace{-0.8ex}\Hom(\{X_i\}_i, Z),\) which is associative.
+
+\(\bullet\) Units \(\id_X \in \Hom(\{X\}, X)\). (\autocite{ha}, Def 2.1.1.1)
+ & A functor \(p : \mathcal{O}^\otimes \to N(\textbf{Fin}_*)\) between \(\infty\)-categories which satisfies the following conditions:
+
+\(\bullet\) For every inert morphism \(f : \ang{m}\to \ang{n}\) in \(N(\textbf{Fin}_*)\) and every object \(C\in \mathcal{O}^\otimes_{\ang{m}}\), there exists a \(p\)-cocartesian morphism \(\overline f : C \to C'\) in \(\mathcal{O}^\otimes\) lifting \(f\).
+
+\(\bullet\) Let \(C \in \mathcal{O}^\otimes_{\ang{m}}\) and \(C'\in \mathcal{O}^\otimes_{\ang{n}}\) be objects, let \(f : \ang{m}\to \ang{n}\) be a morphism in \(\textbf{Fin}_*\), and let \(\Hom^f_{\mathcal{O}^\otimes}(C,C')\) be the union of those connected components of \(\Hom_{\mathcal{O}^\otimes}(C,C')\) which lie over \(f\in \Hom_{\textbf{Fin}_*}(\ang{m}, \ang{n})\). Choose \(p\)-cocartesian morphisms \(C' \to C'_i\) lying over the inert morphisms \(\rho^i : \ang{n}\to \ang{1}\) for \(1 \leq i \leq n\). Then the induced map
+\[\Hom^f_{\mathcal{O}^\otimes}(C,C')\hspace{-0.5ex}\to\hspace{-1.5ex}\prod_{1\leq i\leq n}\hspace{-1.5ex}\Hom^{\rho^i f}_{\mathcal{O}^\otimes}(C,C_i')\]
+is a homotopy equivalence.
+
+\(\bullet\) For every finite collection of objects \(C_1, ..., C_n \in \mathcal{O}^\otimes_{\ang{1}}\), there exists an object \(C \in \mathcal{O}^\otimes_{\ang{n}}\) and a collection of \(p\)-cocartesian morphisms \(C\to C_i\) covering \(\rho^i : \ang{n}\to \ang{1}\).
+ & \textcolour{red}{[todo]}\\
 \hline
  Opposite category& \(\mathcal{C}^\text{op}\) has the same objects as \(\mathcal{C}\), and \(\Hom_{\mathcal{C}^\text{op}}(X, Y)=\Hom_\mathcal{C}(Y,X)\).  & \(\mathcal{C}^\text{op}_n=\mathcal{C}([n]^\text{op}) \), where \(\{0<1<...<n\}^\text{op}=\{0>1>...>n\}\). (\autocite{htt}, 1.2.1) & A map \(x \to y\) is an edge \(\Delta^1 \to \mathcal{C}\) where \(0\mapsto x\) and \(1 \mapsto y\). In \(\mathcal{C}^\text{op}\) 0 and 1 swap roles, so we instead get a map \(y \to x\).\\
  \hline
@@ -379,23 +397,27 @@ S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
 
 \text{}
 
-\begin{tabular}{ |p{5cm}||p{8cm}|}
+\begin{longtable}{ |p{5cm}||p{8cm}|}
  \hline
- \multicolumn{2}{|c|}{Categories}\\
+ \multicolumn{2}{|c|}{Objects}\\
  \hline
  Name & Definition\\
   \hline\hline
-\(\textbf{Assoc}^\otimes\) & \textcolour{red}{[todo]} \\
+\textbf{Assoc} & \textcolour{red}{\autocite{ha}, Def 4.1.1.1}\\
 \hline
+\(\text{Assoc}^\otimes\) (the associative \(\infty\)-operad) & \(N(\textbf{Assoc}^\otimes)\). (\autocite{ha}, Def 4.1.1.3) \\
+\hline
+\(\textbf{Assoc}^\otimes\) &\textcolour{red}{\autocite{ha}, Def 4.1.1.3}\\
+\hline 
 \textbf{Kan} & The full subcategory of \textbf{sSet} spanned by the collection of small Kan complexes. (\autocite{htt}, Def 1.2.16.1) \\ 
  \hline
 \textbf{KAN} & The category of all Kan complexes. (\autocite{htt}, Rem 5.1.6.1)\\
 \hline
-  \(\mathcal{S}\) (the \(\infty\)-category of spaces) & The simplicial\footnotemark nerve \(N(\textbf{Kan})\).\\
+  \(\mathcal{S}\) (the \(\infty\)-category of spaces) & The simplicial\footnotemark nerve \(N(\textbf{Kan})\). (\autocite{htt}, Def 1.2.16.1)\\
   \hline 
-\(\widehat{\mathcal{S}}\) & The simplicial nerve \(N(\textbf{KAN})\).\\
+\(\widehat{\mathcal{S}}\) & The simplicial nerve \(N(\textbf{KAN})\). (\autocite{htt}, Rem 5.1.6.1)\\
 \hline
-\end{tabular}
+\end{longtable}
 \footnotetext{{\textbf{sSet} is a simplicial category, with \(\Hom(X, S)_n=\Hom_{\textbf{sSet}}(\Delta^n \times X, S)\). The subcategory \textbf{Kan} inherits this structure.}}
 % what is LaTeX's problem?? How hard is it to let someone put a footnote in a table?
 
