@@ -222,7 +222,17 @@ Right cone & \(\mathcal{C}^\rhd :=\mathcal{C}\star [0]\). & \(\mathcal{C}^\rhd :
  Subcategory & Subcategory \(\mathcal{C}' \subq \mathcal{C}\). & Subsimplicial set \(\mathcal{C}' \subq \mathcal{C}\) arising as a pullback \(\begin{tikzcd}
 \mathcal{C}' \arrow[d, ""'] \arrow[r, ""] \arrow[dr, phantom, "\scalebox{1.3}{$\lrcorner$}" {xshift=-16pt, yshift=6pt}] & \mathcal{C} \arrow[d, ""] \\
 N(\text{h}\mathcal{C})' \arrow[r, ""'] & N(\text{h}\mathcal{C})
-\end{tikzcd}\) where (h\(\mathcal{C})'\subq\) h\(\mathcal{C}\) is a subcategory. (\autocite{htt}, 1.2.11) &  \textcolour{red}{[todo]}\\
+\end{tikzcd}\) where (h\(\mathcal{C})'\subq\) h\(\mathcal{C}\) is a subcategory. (\autocite{htt}, 1.2.11) & Expected definition: Subsimplicial set \(\mathcal{C}'\subq \mathcal{C}\) satisfying inner horn filling. These are actually equivalent: suppose we have a such a subsimplicial set. Then \(\begin{tikzcd}
+\mathcal{C}' \arrow[d, ""'] \arrow[r, ""] \arrow[dr, phantom, "\scalebox{1.3}{$\lrcorner$}" {xshift=-16pt, yshift=6pt}] & \mathcal{C} \arrow[d, ""] \\
+N(\text{h}\mathcal{C}') \arrow[r, ""'] & N(\text{h}\mathcal{C})
+\end{tikzcd}\) is a pullback. Conversely, suppose we're given a pullback as in the box to the left. Then the diagram
+\[\begin{tikzcd} 
+\Delta^n \arrow[rrd, dashrightarrow] \arrow[dr, swap, dashrightarrow] \arrow[ddr, dashrightarrow] & \Lambda^n_i \arrow[dr, ""] \arrow[d, ""] \arrow[l, hookrightarrow] &\\ 
+ & \mathcal{C}' \arrow[r, ""] \arrow[d, ""] \arrow[dr, phantom, "\scalebox{1.3}{$\lrcorner$}" {xshift=-16pt, yshift=6pt}] & \mathcal{C} \arrow[d, ""]\\ 
+& N(\text{h}\mathcal{C})' \arrow[r, swap, ""] & N(\text{h}\mathcal{C})
+\end{tikzcd}\] 
+shows that \(\mathcal{C}'\) also satisfies inner horn filling, where the outer two dotted maps come from horn filling for \(\mathcal{C}\) and \(N(\text{h}\mathcal{C})'\), and the inner dotted map comes from the fact that the square is a pullback.
+\\
  \hline
  Symmetric monoidal category & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} & \textcolour{red}{[todo]}\\
  \hline
