@@ -218,7 +218,7 @@ Monoidal category & Opfibration of categories \(p : \mathcal{C}^\otimes \to \Dd^
 \{0,3\} \arrow[r, ""] \arrow[d, swap, ""]  & \{0,1,3\} \arrow[d, ""]  \\
 \{0,2,3\} \arrow[r, swap, ""]  & \{0,1,2,3\}
 \end{tikzcd}\]
-in \(\Dd\). Conversely, given a monoidal category \(\mathcal{C}\), define \(\mathcal{C}^\otimes\) to have objects finite sequences \([C_1, ..., C_n]\) of objects of \(\mathcal{C}\), and a morphism \([C_1, ..., C_n]\to [C_1', ..., C'_m]\) to be a map \([m]\to [n]\) and a collection of morphisms \(C_{f(i-1)+1}\otimes \cdots \otimes C_{f(i)}\to C'_i\) for \(1\leq i \leq m\).\footnote{You ``tensor along the gap'', if that makes any sense.} Then the forgetful functor to \(\Dd^{\text{op}}\) is the required cocartesian fibration.
+in \(\Dd\). Conversely, given a monoidal category \(\mathcal{C}\), define \(\mathcal{C}^\otimes\) to have objects finite sequences \([C_1, ..., C_n]\) of objects of \(\mathcal{C}\), and a morphism \([C_1, ..., C_n]\to [C_1', ..., C'_m]\) to be a map \([m]\to [n]\) and a collection of morphisms \(C_{f(i-1)+1}\otimes \cdots \otimes C_{f(i)}\to C'_i\) for \(1\leq i \leq m\).\footnote{You ``tensor along the gap'', if that makes any sense.} Then the forgetful functor to \(\Dd^{\text{op}}\) is the required cocartesian fibration. (\autocite{derivedii}, p5-6)
  \\
 \hline
 (Coloured) operad & 
@@ -268,7 +268,9 @@ N(\text{h}\mathcal{C}') \arrow[r, ""'] & N(\text{h}\mathcal{C})
 shows that \(\mathcal{C}'\) also satisfies inner horn filling, where the outer two dotted maps come from horn filling for \(\mathcal{C}\) and \(N(\text{h}\mathcal{C})'\), and the inner dotted map comes from the fact that the square is a pullback.
 \\
  \hline
- Symmetric monoidal category & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} & \textcolour{red}{[todo]}\\
+ Symmetric monoidal category & Opfibration of categories \(p : \mathcal{C}^\otimes \to \textbf{Fin}_*\) such that, for each \(n\geq 0\), the associated functors \(\mathcal{C}^\otimes_{\ang{n}}\to \mathcal{C}^\otimes_{\{*, i\}}\) determine an equivalence of categories 
+\(\mathcal{C}^\otimes_{\ang{n}}\to \mathcal{C}^\otimes_{\{*, 1\}} \times ...\times \mathcal{C}^\otimes_{\{*, n\}}\simeq (\mathcal{C}^\otimes_{\ang{1}})^n\). & Cocartesian fibration of simplicial sets \(p : \mathcal{C}^\otimes \to N(\textbf{Fin}_*)\) such that, for each \(n\geq 0\), the associated functors \(\mathcal{C}^\otimes_{\ang{1}}\to \mathcal{C}^\otimes_{\{*, i\}}\) determine an equivalence\footnote{\textcolour{red}{Weak or categorical?}} of \(\infty\)-categories
+\[\mathcal{C}^\otimes_{\ang{n}}\hspace{-0.5ex}\to \mathcal{C}^\otimes_{\{*,1\}} \times ...\times \mathcal{C}^\otimes_{\{*, n\}}\hspace{-0.5ex}\simeq (\mathcal{C}^\otimes_{\ang{1}})^n\] (\autocite{ha}, Def 2.0.0.7) & In the \(1\)-categorical case, you recover the original category by setting \(\mathcal{C}:=\mathcal{C}^\otimes_{\ang{1}}\). The unit is \(\mathcal{C}^\otimes_{\ang{0}}\), the tensor product \(\otimes\) is induced by \(\ang{2}\to \ang{1}\), the symmetric isomorphism comes from the swapping map \(\ang{2}\to \ang{2}\), the unitors and associators come from similar commutative diagrams to those in the intuition for a monoidal \(\infty\)-category. Conversely, given a symmetric monoidal category \(\mathcal{C}\), define \(\mathcal{C}^\otimes\) to have objects finite sequences \([C_1, ..., C_n]\) of objects of \(\mathcal{C}\), and a morphism \([C_1, ..., C_n]\to [C_1', ..., C'_m]\) to be a map \(\ang{n}\to \ang{m}\) and a collection of morphisms \(\bigotimes_{i \in \alpha^{-1}\{j\}}C_i \to C_j'\) for \(1\leq j \leq m\). Then the forgetful functor to \(\textbf{Fin}_*\) is the required cocartesian fibration. (\autocite{ha}, p165-168)\\
  \hline
  Symmetric monoidal functor & \textcolour{red}{[todo]} & \textcolour{red}{[todo]}& \textcolour{red}{[todo]}\\
  \hline
