@@ -123,10 +123,13 @@
 \def\colour{\color}
 \def\textcolour{\textcolor}
 
+\newcommand{\bbfamily}{\fontencoding{U}\fontfamily{bbold}\selectfont}
+\DeclareMathAlphabet{\mathbbold}{U}{bbold}{m}{n}
+
 % \limits\sum or \sum\limits (one of them) will put the text under the sum
 % [upquote=true] on \begin{lstlisting} will stop backticks being interpreted as quotes
 
-\usepackage[backend=bibtex, style=alphabetic]{biblatex}
+\usepackage[backend=bibtex, style=alphabetic,maxnames=5]{biblatex}
 \addbibresource{References.bib}
 
 \begin{document}
@@ -139,7 +142,7 @@
  \hline
  Concept& 1-Categorical construction & \(\infty\)-Categorical construction &Intuition\\
  \hline\hline
- Accessible category & \(\mathcal{C}\) is locally small, admits \(\kappa\)-filtered colimits, and there is a set of \(\kappa\)-compact objects that generate the category under \(\kappa\)-filtered colimits. (\autocite{accessible}, Def 2.1) & \textcolour{red}{\(\mathcal{C}\) is locally small, admits \(\kappa\)-filtered colimits, the full subcategory \(\mathcal{C}^\kappa\subq \mathcal{C}\) of \(\kappa\)-compact objects is essentially small, and \(\mathcal{C}^\kappa\) generates \(\mathcal{C}\) under small, \(\kappa\)-filtered colimits. (\autocite{htt}, Prop 5.4.2.2)} & \textcolour{red}{[todo]}\\
+ Accessible category & \(\mathcal{C}\) is locally small, admits \(\kappa\)-filtered colimits, and there is a set of \(\kappa\)-compact objects that generate the category under \(\kappa\)-filtered colimits. (\autocite{accessible}, Def 2.1) & \(\mathcal{C}\) is locally small, admits \(\kappa\)-filtered colimits, the full subcategory \(\mathcal{C}^\kappa\subq \mathcal{C}\) of \(\kappa\)-compact objects is essentially small, and \textcolour{red}{\(\mathcal{C}^\kappa\) generates \(\mathcal{C}\)} under small, \(\kappa\)-filtered colimits. (\autocite{htt}, Prop 5.4.2.2) & \textcolour{red}{[todo]}\\
  \hline
   \(F\)-Cartesian edge & \(F : X \to S \) a functor, \(f : x\to y \) a morphism in \(X\) is \(F\)-cartesian if the induced map \[X_{/f}\to X_{/y}\times_{S_{/F(y)}}S_{/F(f)}\] is an isomorphism of categories. (\autocite{cartesian}, Prop 2.4) & \(F : X \to S \) an inner fibration of simplicial sets, \(f : x\to y \) an edge in \(X\) is \(F\)-cartesian if the induced map \[X_{/f}\to X_{/y}\times_{S_{/F(y)}}S_{/F(f)}\] is a trivial Kan fibration. (\autocite{htt}, Def 2.4.1.1)& In the model structure on \textbf{sSet}, the fibrations are Kan fibrations and the weak equivalences are weak homotopy equivalences (\autocite{htt}, A.2.7). A trivial fibration in a model category is a map which is both a fibration and a weak equivalence, which in \textbf{sSet} is equivalent to the definition given in this table. Thus, being related by a Kan fibration is a higher categorical notion of `sameness'. \textcolour{red}{Why not a categorical equivalence? \autocite{htt} Rem 1.2.5.5 implies this is stronger, which would match more with the fact that the 1-categorical version is defined in terms of an isomorphism (not equivalence) of categories.} \\
 \hline
@@ -149,9 +152,7 @@
 \hline
  Colimit & A colimit for \(F : J \to \mathcal{C}\) is an initial cocone on \(F\). & A colimit for \(F : X\to \mathcal{C} \) (\(X\) a simplicial set, \(\mathcal{C}\) an \(\infty\)-category) is an initial object of \(\mathcal{C}_{F/}\). (\autocite{htt}, Def 1.2.13.4) & The obvious extension of the definition of the undercategory \(\mathcal{C}_{C/}\) for \(C : \{*\} \to \mathcal{C}\) to \(\mathcal{C}_{/F}\)  for an arbitrary functor \(F : J \to \mathcal{C}\) ends up being exactly \(\textbf{Cocone}(F)\). \\
 \hline
-\(\kappa\)-Compact object & Let \(C \in \mathcal{C}\), and let \(j_C : \mathcal{C} \to \textbf{Set}\) denote the functor represented by \(C\). If \(\mathcal{C}\) admits \(\kappa\)-filtered colimits, then \(C\) is \(\kappa\)-compact if \(j_C\) commutes with filtered colimits. (\autocite{htt}, 5.3.4) & \textcolour{red}{Let \(C \in \mathcal{C}\), and let \(j_C : \mathcal{C} \to \hat{\mathcal{S}}\) denote the functor represented by \(C\). If \(\mathcal{C}\) admits \(\kappa\)-filtered colimits, then \(C\) is \(\kappa\)-compact if \(j_C\) preserves \(\kappa\)-filtered colimits.\footnote{Lurie introduces the term \textit{\(\kappa\)-continuous} for such functors, but in ordinary category theory this generally means a functor which preserves \(\kappa\)-small limits; a functor preserving \(\kappa\)-filtered colimits is called \textit{\(\kappa\)-finitary}. I have thus steered clear of this term.} (\autocite{htt}, Def 5.3.4.5)} & \textcolour{red}{[todo]}\\
-\hline
-Dual object & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} & \textcolour{red}{[todo]}\\
+\(\kappa\)-Compact object & Let \(C \in \mathcal{C}\), and let \(j_C : \mathcal{C} \to \textbf{Set}\) denote the functor represented by \(C\). If \(\mathcal{C}\) admits \(\kappa\)-filtered colimits, then \(C\) is \(\kappa\)-compact if \(j_C\) commutes with filtered colimits. (\autocite{htt}, 5.3.4) & Let \(C \in \mathcal{C}\), and let \(j_C : \mathcal{C} \to \hat{\mathcal{S}}\) denote the functor  \textcolour{red}{represented by \(C\)}. If \(\mathcal{C}\) admits \(\kappa\)-filtered colimits, then \(C\) is \(\kappa\)-compact if \(j_C\)  \textcolour{red}{preserves} \(\kappa\)-filtered colimits.\footnote{Lurie introduces the term \textit{\(\kappa\)-continuous} for such functors, but in ordinary category theory this generally means a functor which preserves \(\kappa\)-small limits; a functor preserving \(\kappa\)-filtered colimits is called \textit{\(\kappa\)-finitary}. I have thus steered clear of this term.} (\autocite{htt}, Def 5.3.4.5) & \textcolour{red}{[todo]}\\
 \hline
 Essentially small category & \(\mathcal{C}\) equivalent to a small category. & \(\mathcal{C}\) equivalent\footnote{\textcolour{red}{Categorically, or weakly?}} to a small \(\infty\)-category. & \textcolour{red}{[todo]}\\
 \hline 
@@ -189,6 +190,8 @@ Initial object & Object \(C\in \mathcal{C} \) such that for any other object \(C
 \end{cases}\] If \(j=0\), then \(d_0(\sigma, \tau)=\tau\), and if \(k=0\), then \(d_n(\sigma, \tau)=\sigma\).  (\autocite{htt}, Def 1.2.8.1 / \autocite{join}) & Objects are in both cases disjoint unions of objects from the two categories being joined. Morphisms are also exactly the same in both cases (you get all the morphisms from \(\mathcal{C}\) and \(\mathcal{D}\), plus a morphism from \(c\to d\) for every pair \((c, d)\in \mathcal{C}_0\times \mathcal{D}_0\)). Whenever you have an \(n\)-simplex in \(\mathcal{C}\) and an \(m\)-simplex in \(\mathcal{D}\), you get an \((m+n+1)\)-simplex in \(\mathcal{C}\star \mathcal{D}\), so in particular \(\Delta^n\star \Delta^m \cong \Delta^{m+n+1}\).\\
 \hline
 Left cone & \(\mathcal{C}^\lhd := [0]\star \mathcal{C}\). & \(\mathcal{C}^\lhd := \Delta^0 \star \mathcal{C}\).  (\autocite{htt}, Not 1.2.8.4) & \(\mathcal{C}\) with extra vertex (cone point) added, as well as a map from that cone point to every other vertex in \(\mathcal{C}\) (plus obligatory degenerate simplicies).\\
+\hline
+Left dualisable object & Object \(C \in \mathcal{C}\) such that there exists some \(C^* \in \mathcal{C}\) and maps \(e : C\otimes C^* \to \mathbbold{1}\), \(c : \mathbbold{1} \to C^* \otimes C\) such that the composites \(C \to C \otimes C^* \otimes C \to C\) and \(C^* \to C^* \otimes C \otimes C^* \to C^*\) are equal to the identity.\footnote{The opposite convention (i.e. that this defines a \textit{right} dualisable object) is taken in \autocite{tensor}, and by many other authors. I'm attempting to follow Lurie's conventions as far as possible.} & Object \(C \in \mathcal{C}\) such that there exists some \(C^* \in \mathcal{C}\) and maps \(e : C\otimes C^* \to \mathbbold{1}\), \(c : \mathbbold{1} \to C^* \otimes C\) such that the composites \(C \to C \otimes C^* \otimes C \to C\) and \(C^* \to C^* \otimes C \otimes C^* \to C^*\) are homotopic to the identity. & \(C\) has a left dual up to homotopy.\\
 \hline
 Left Kan extension (along the inclusion of a full subcategory) & Given a commutative diagram \(\begin{tikzcd}
 \mathcal{C}^0 \arrow[r, "F_0"] \arrow[d, swap, "\iota", hookrightarrow]  & \mathcal{D} \\
@@ -241,6 +244,8 @@ is a homotopy equivalence.
 \(\bullet\) For every finite collection of objects \(C_1, ..., C_n \in \mathcal{O}^\otimes_{\ang{1}}\), there exists an object \(C \in \mathcal{O}^\otimes_{\ang{n}}\) and a collection of \(p\)-cocartesian morphisms \(C\to C_i\) covering \(\rho^i : \ang{n}\to \ang{1}\).
  & \textcolour{red}{[todo]}\\
 \hline
+(Coloured) operad map & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} \\
+\hline
  Opposite category& \(\mathcal{C}^\text{op}\) has the same objects as \(\mathcal{C}\), and \(\Hom_{\mathcal{C}^\text{op}}(X, Y)=\Hom_\mathcal{C}(Y,X)\).  & \(\mathcal{C}^\text{op}_n=\mathcal{C}([n]^\text{op}) \), where \(\{0<1<...<n\}^\text{op}=\{0>1>...>n\}\). (\autocite{htt}, 1.2.1) & A map \(x \to y\) is an edge \(\Delta^1 \to \mathcal{C}\) where \(0\mapsto x\) and \(1 \mapsto y\). In \(\mathcal{C}^\text{op}\) 0 and 1 swap roles, so we instead get a map \(y \to x\).\\
  \hline
   Overcategory & For \(C \in \mathcal{C}, \) the category \(\mathcal{C}_{/C}\) satisfies the following universal property: for any category \(\mathcal{D}\), there is a bijection \[\Hom(\mathcal{D}, \mathcal{C}_{/C})\simeq \Hom_C(\mathcal{D}\star[0], \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(\mathcal{D}\star[0] \to \mathcal{C}\) whose restriction to \([0]\) consides with \(C\). (\autocite{htt}, 1.2.9)&  For \(f : S \to \mathcal{C}, \) \(S\) a simplicial set and \(\mathcal{C}\) an \(\infty\)-category, the \(\infty\)-category \(\mathcal{C}_{/f}\) satisfies the following universal property: for any simplicial set \(X\), there is a bijection \[\Hom(X, \mathcal{C}_{/f})\simeq \Hom_f(X\star S, \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(X\star S \to \mathcal{C}\) whose restriction to \(S\) consides with \(f\). Explicitly, \[(\mathcal{C}_{/f})_n:=\Hom_f(\Delta^n\star S, \mathcal{C}).\]  (\autocite{htt}, Prop 1.2.9.2) & If \(S = \Delta^0\), writing \(C\in \mathcal{C}\) for the object picked out by \(f\), we have \((\mathcal{C}_{/C})_n=\Hom_C(\Delta^n\star\Delta^0, \mathcal{C})\cong\Hom_C(\Delta^{n+1}, \mathcal{C})\) (where the subscript indicates that we only consider morphisms sending the \((n+1)\)st vertex to \(C\)). In other words, the objects are maps to \(C\), the morphisms are commuting triangles over \(C\), and so on; these are exactly the objects and morphisms in the 1-categorical case. \\
@@ -253,6 +258,8 @@ Representable functor & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} & \t
 \hline
 Right cone & \(\mathcal{C}^\rhd :=\mathcal{C}\star [0]\). & \(\mathcal{C}^\rhd := \mathcal{C} \star \Delta^0\). (\autocite{htt}, Not 1.2.8.4) & \(\mathcal{C}\) with extra vertex (cone point) added, as well as a map from every other vertex in \(\mathcal{C}\) to that cone point (plus obligatory degenerate simplicies).\\
  \hline
+ Right dualisable object & Object \(C \in \mathcal{C}\) such that there exists some \(\text{}^*C \in \mathcal{C}\) and maps \(e : \text{}^*C\otimes C \to \mathbbold{1}\), \(c : \mathbbold{1} \to C \otimes \text{}^*C\) such that the composites \(C \to C \otimes \text{}^*C \otimes C \to C\) and \(\text{}^*C \to \text{}^*C \otimes C \otimes \text{}^*C \to \text{}^*C\) are equal to the identity. & Object \(C \in \mathcal{C}\) such that there exists some \(\text{}^*C \in \mathcal{C}\) and maps \(e : \text{}^*C\otimes C \to \mathbbold{1}\), \(c : \mathbbold{1} \to C \otimes \text{}^*C\) such that the composites \(C \to C \otimes \text{}^*C \otimes C \to C\) and \(\text{}^*C \to \text{}^*C \otimes C \otimes \text{}^*C \to \text{}^*C\) are homotopic to the identity. & \(C\) has a right dual up to homotopy.\\
+\hline
  Subcategory & Subcategory \(\mathcal{C}' \subq \mathcal{C}\). & Subsimplicial set \(\mathcal{C}' \subq \mathcal{C}\) arising as a pullback \(\begin{tikzcd}
 \mathcal{C}' \arrow[d, ""'] \arrow[r, ""] \arrow[dr, phantom, "\scalebox{1.3}{$\lrcorner$}" {xshift=-16pt, yshift=6pt}] & \mathcal{C} \arrow[d, ""] \\
 N(\text{h}\mathcal{C})' \arrow[r, ""'] & N(\text{h}\mathcal{C})
@@ -272,7 +279,7 @@ shows that \(\mathcal{C}'\) also satisfies inner horn filling, where the outer t
 \(\mathcal{C}^\otimes_{\ang{n}}\to \mathcal{C}^\otimes_{\{*, 1\}} \times ...\times \mathcal{C}^\otimes_{\{*, n\}}\simeq (\mathcal{C}^\otimes_{\ang{1}})^n\). & Cocartesian fibration of simplicial sets \(p : \mathcal{C}^\otimes \to N(\textbf{Fin}_*)\) such that, for each \(n\geq 0\), the associated functors \(\mathcal{C}^\otimes_{\ang{1}}\to \mathcal{C}^\otimes_{\{*, i\}}\) determine an equivalence\footnote{\textcolour{red}{Weak or categorical?}} of \(\infty\)-categories
 \[\mathcal{C}^\otimes_{\ang{n}}\hspace{-0.5ex}\to \mathcal{C}^\otimes_{\{*,1\}} \times ...\times \mathcal{C}^\otimes_{\{*, n\}}\hspace{-0.5ex}\simeq (\mathcal{C}^\otimes_{\ang{1}})^n\] (\autocite{ha}, Def 2.0.0.7) & In the \(1\)-categorical case, you recover the original category by setting \(\mathcal{C}:=\mathcal{C}^\otimes_{\ang{1}}\). The unit is \(\mathcal{C}^\otimes_{\ang{0}}\), the tensor product \(\otimes\) is induced by \(\ang{2}\to \ang{1}\), the symmetric isomorphism comes from the swapping map \(\ang{2}\to \ang{2}\), the unitors and associators come from similar commutative diagrams to those in the intuition for a monoidal \(\infty\)-category. Conversely, given a symmetric monoidal category \(\mathcal{C}\), define \(\mathcal{C}^\otimes\) to have objects finite sequences \([C_1, ..., C_n]\) of objects of \(\mathcal{C}\), and a morphism \([C_1, ..., C_n]\to [C_1', ..., C'_m]\) to be a map \(\ang{n}\to \ang{m}\) and a collection of morphisms \(\bigotimes_{i \in \alpha^{-1}\{j\}}C_i \to C_j'\) for \(1\leq j \leq m\). Then the forgetful functor to \(\textbf{Fin}_*\) is the required cocartesian fibration. (\autocite{ha}, p165-168)\\
  \hline
- Symmetric monoidal functor & \textcolour{red}{[todo]} & \textcolour{red}{[todo]}& \textcolour{red}{[todo]}\\
+ Symmetric monoidal functor & \textcolour{red}{[todo]} & Let \(p : \mathcal{C}^\otimes \to N(\textbf{Fin}_*)\), \(q : \mathcal{D} \to N(\textbf{Fin}_*)\) be symmetric monoidal \(\infty\)-categories. Then an \textcolour{red}{\(\infty\)-operad map \(f \in \textbf{Alg}_\mathcal{C}(\mathcal{D})\)} is a symmetric monoidal functor if it carries \(p\)-cocartesian morphisms to \(q\)-cocartesian morphisms. (\autocite{ha}, Def 2.1.3.7) & \textcolour{red}{[todo]}\\
  \hline
  Topos & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} & \textcolour{red}{[todo]} \\
  \hline
@@ -421,6 +428,8 @@ S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
  \hline
  Name & Definition\\
   \hline\hline
+\(\textbf{Alg}_\mathcal{C}(\mathcal{D})\) (\(p : \mathcal{C}^\otimes \to \mathcal{O}^\otimes\), \(q : \mathcal{D}^\otimes \to \mathcal{O}^\otimes\) \(\infty\)-operads) & \textcolour{red}{[todo]} \\
+\hline
 \textbf{Assoc} (the associative operad) & The coloured operad with a single object \(\mathfrak{a}\), and for every finite set \(I\), \(\Hom(\{\mathfrak{a}\}_i, \mathfrak{a})\) is the set of linear orderings on \(I\). Given a map of finite sets \(\alpha : I \to J\) together with operations \(\phi_j\in \Hom(\{\mathfrak{a}\}_{\alpha(i)=j}, \mathfrak{a})\) and \(\psi \in \Hom(\{\mathfrak{a}_j, \mathfrak{a}\})\), we identify each \(\phi_j\) with a linear ordering \(\leq_j\) on the set \(\alpha^{-1}\{j\}\) and \(\psi\) with a linear ordering \(\leq'\) on the set \(J\). The composition of \(\psi\) with \(\{\phi_j\}\) corresponds to the linear ordering \(\leq\) on the set \(I\) which is defined by: \(i\leq i'\)if either \(\alpha(i) <_j \alpha(i')\) or \(\alpha(i)=j=\alpha(i')\) and \(i \leq_j i'\). % so now it should be clear
 (\autocite{ha}, Def 4.1.1.1)\\
 \hline
