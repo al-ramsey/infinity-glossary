@@ -9,6 +9,8 @@
 \usepackage[a4paper,top=2cm,bottom=2cm,left=0.4cm,right=0.4cm,marginparwidth=1.75cm]{geometry}
 \usepackage{multirow}
 
+\usepackage{pdflscape}
+
 % Useful packages
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
@@ -129,6 +131,8 @@
 % \limits\sum or \sum\limits (one of them) will put the text under the sum
 % [upquote=true] on \begin{lstlisting} will stop backticks being interpreted as quotes
 
+\usepackage{afterpage}
+
 \usepackage[backend=bibtex, style=alphabetic,maxnames=5]{biblatex}
 \addbibresource{References.bib}
 
@@ -136,9 +140,9 @@
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert} 
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert} 
 \DeclarePairedDelimiter{\ang}{\langle}{\rangle} 
-
+\begin{landscape}
 \begin{centre}
-\begin{longtable}{ |p{3.2cm}||p{5cm}|p{5.2cm}|p{5cm}|  }
+\begin{longtable}{ |p{3.2cm}||p{7cm}|p{7cm}|p{8cm}|  }
  \hline
  Concept& 1-Categorical construction & \(\infty\)-Categorical construction &Intuition\\
  \hline\hline
@@ -286,7 +290,10 @@ shows that \(\mathcal{C}'\) also satisfies inner horn filling, where the outer t
  Undercategory & For \(C \in \mathcal{C}, \) the category \(\mathcal{C}_{C/}\) satisfies the following universal property: for any category \(\mathcal{D}\), there is a bijection \[\Hom(\mathcal{D}, \mathcal{C}_{C/})\simeq \Hom_C([0]\star\mathcal{D}, \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \([0]\star\mathcal{D} \to \mathcal{C}\) whose restriction to \([0]\) consides with \(C\). (\autocite{htt}, 1.2.9) &  For \(f : S \to \mathcal{C}, \) \(S\) a simplicial set and \(\mathcal{C}\) an \(\infty\)-category, the \(\infty\)-category \(\mathcal{C}_{f/}\) satisfies the following universal property: for any simplicial set \(X\), there is a bijection \[\Hom(X, \mathcal{C}_{f/})\simeq \Hom_f(S\star X, \mathcal{C}),\] where the subscript on the right indicates that we consider only those functors \(S\star X \to \mathcal{C}\) whose restriction to \(S\) consides with \(f\). Explicitly, \[(\mathcal{C}_{f/})_n:=\Hom_f(S\star\Delta^n, \mathcal{C}).\]  (\autocite{htt}, Prop 1.2.9.2) & If \(S = \Delta^0\), writing \(C\in \mathcal{C}\) for the object picked out by \(f\), we have \((\mathcal{C}_{C/})_n=\Hom_C(\Delta^0\star\Delta^n, \mathcal{C})\cong\Hom_C(\Delta^{n+1}, \mathcal{C})\) (where the subscript indicates that we only consider morphisms sending the \(0\)th vertex to \(C\)). In other words, the objects are maps from \(C\), the morphisms are commuting triangles under \(C\), and so on; these are exactly the objects and morphisms in the 1-categorical case.\\
 \hline
 \end{longtable}
+\end{centre}
+\end{landscape}
 
+\centering
 \begin{tabular}{ |p{5cm}||p{5cm}|p{7cm}|}
  \hline
  \multicolumn{3}{|c|}{Equivalences}\\
@@ -450,8 +457,6 @@ S \arrow[r, swap, ""] \arrow[ur, dashrightarrow]  & T
 \end{longtable}
 \footnotetext{{\textbf{sSet} is a simplicial category, with \(\Hom(X, S)_n=\Hom_{\textbf{sSet}}(\Delta^n \times X, S)\). The subcategory \textbf{Kan} inherits this structure.}}
 % what is LaTeX's problem?? How hard is it to let someone put a footnote in a table?
-
-\end{centre}
 
 \newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
 \printbibliography
